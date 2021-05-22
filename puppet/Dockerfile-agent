@@ -1,4 +1,5 @@
-FROM myimage:test
+FROM gayatrisa/myubuntu:20.04-with-ssh
+MAINTAINER Gayatri S Ajith <gayatri.sa@gmail.com>
 
 RUN apt-get update && apt-get install -y nano curl wget git tree
 RUN wget https://apt.puppetlabs.com/puppet7-release-focal.deb && dpkg -i puppet7-release-focal.deb
