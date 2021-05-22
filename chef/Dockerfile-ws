@@ -1,0 +1,5 @@
+FROM myimage:test
+
+RUN wget https://packages.chef.io/files/stable/chef-workstation/21.1.233/ubuntu/20.04/chef-workstation_21.1.233-1_amd64.deb
+RUN dpkg -i chef-workstation_21.1.233-1_amd64.deb 
+RUN chef -v

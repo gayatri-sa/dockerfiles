@@ -1,0 +1,9 @@
+FROM myimage:test
+
+RUN apt-get update && apt-get install -y nano curl wget git tree
+RUN wget https://apt.puppetlabs.com/puppet7-release-focal.deb && dpkg -i puppet7-release-focal.deb
+RUN apt-get update -y && apt-get install -y puppet-agent
+
+RUN echo "export PATH=/opt/puppetlabs/bin:${PATH}" >> /root/.bashrc
+COPY supervisord-for-agent.conf /etc/supervisor/conf.d/supervisord.conf
+COPY set-puppet-conf.sh /tmp/set-puppet-conf.sh
