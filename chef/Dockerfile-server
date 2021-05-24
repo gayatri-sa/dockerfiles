@@ -1,0 +1,10 @@
+FROM gayatrisa/myubuntu:20.04-with-ssh
+MAINTAINER Gayatri S Ajith <gayatri.sa@gmail.com>
+
+RUN apt-get update -y
+RUN wget https://packages.chef.io/files/stable/chef-server/14.4.4/ubuntu/20.04/chef-server-core_14.4.4-1_amd64.deb
+RUN dpkg -i chef-server-core_14.4.4-1_amd64.deb
+
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+RUN apt-get install -y iproute2

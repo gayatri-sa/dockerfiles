@@ -9,3 +9,7 @@ RUN sed -ri 's/\-Xms2g/\-Xms1g/' /etc/default/puppetserver && \
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN echo "export PATH=/opt/puppetlabs/bin:${PATH}" >> /root/.bashrc
+
+RUN wget https://apt.puppet.com/puppet-tools-release-focal.deb && dpkg -i puppet-tools-release-focal.deb
+RUN apt-get update -y && apt-get install -y pdk
+
