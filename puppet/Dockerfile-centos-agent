@@ -1,0 +1,11 @@
+FROM gayatrisa/mycentos:7-with-ssh
+MAINTAINER Gayatri S Ajith <gayatri.sa@gmail.com>
+
+RUN yum update && yum install -y nano curl wget git tree
+RUN rpm -Uvh https://yum.puppet.com/puppet5-release-el-7.noarch.rpm
+RUN yum update -y && yum install -y puppet-agent
+
+RUN echo "export PATH=/opt/puppetlabs/bin:${PATH}" >> /root/.bashrc
+COPY supervisord-for-agent.conf /etc/supervisor/conf.d/supervisord.conf
+COPY supervisord-for-agent.conf /etc/supervisor/supervisord.conf
+COPY set-puppet-conf.sh /tmp/set-puppet-conf.sh
