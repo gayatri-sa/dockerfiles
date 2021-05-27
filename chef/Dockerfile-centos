@@ -1,4 +1,0 @@
-FROM gayatrisa/mycentos:7-with-ssh
-MAINTAINER Gayatri S Ajith <gayatri@schogini.com>
-
-# Can use to add something to a CentOS chef node
