@@ -41,5 +41,6 @@ RUN sed -ri 's/^#IgnoreUserKnownHosts\s+.*/IgnoreUserKnownHosts yes/' /etc/ssh/s
 # - Clean YUM caches to minimise Docker image size...
 RUN yum clean all && rm -rf /tmp/yum*
 
+# Go this idea from https://stackoverflow.com/questions/48720049/docker-how-to-run-usr-sbin-init-and-then-other-scripts-on-start-up
 ENTRYPOINT ["/usr/sbin/init"]
 CMD ["sshd"]
