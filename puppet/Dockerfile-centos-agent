@@ -1,7 +1,7 @@
 FROM gayatrisa/mycentos:7-with-ssh
 MAINTAINER Gayatri S Ajith <gayatri.sa@gmail.com>
 
-RUN yum update && yum install -y nano curl wget git tree
+RUN yum update -y && yum install -y nano curl wget git tree
 RUN rpm -Uvh https://yum.puppet.com/puppet5-release-el-7.noarch.rpm
 RUN yum update -y && yum install -y puppet-agent
 
