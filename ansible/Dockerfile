@@ -1,0 +1,5 @@
+FROM gayatrisa/myubuntu:20.04-with-ssh
+MAINTAINER Gayatri S Ajith <gayatri.sa@gmail.com>
+
+RUN apt-get update && apt-get install -y ansible sshpass iputils-ping dnsutils
+RUN ssh-keygen -t rsa -q -N '' -f ~/.ssh/id_rsa
