@@ -1,6 +1,8 @@
 FROM gayatrisa/mycentos:base7
 MAINTAINER Gayatri S Ajith <gayatri@schogini.com>
 
+# USED TO BUILD gayatrisa/mycentos:7-ssh-no-supervisord
+
 RUN yum update -y && yum install -y openssh-server openssh-clients nano curl git tree wget sudo
 RUN yum install -y epel-release && \
     yum install -y \
